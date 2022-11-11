@@ -29,10 +29,15 @@ namespace Time_Library
                 // display process name in left column
                 processNameTextBox.Text += Path.GetFileName(process) + Environment.NewLine;
 
-                // display process time in right column
-                processTimeTextBox.Text += TimeSpan.FromMilliseconds
-                    (calculateProcessTime(process)).ToString(@"hh\:mm\:ss") + Environment.NewLine;
+                // get raw time of process in milliseconds
+                long rawTime = calculateProcessTime(process);
 
+                // format raw time
+                long hours = rawTime / 1000 / 60 / 60;
+                long minutes = (rawTime / 1000 / 60) - hours * 60;
+
+                // display process time in right column with some formatting
+                processTimeTextBox.Text += hours + "h " + minutes + "m" + Environment.NewLine;
             }
         }
 
