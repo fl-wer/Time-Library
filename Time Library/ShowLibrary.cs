@@ -34,7 +34,7 @@ namespace Time_Library
 
                 // format raw time
                 long hours = rawTime / 1000 / 60 / 60;
-                long minutes = (rawTime / 1000 / 60) - hours * 60;
+                long minutes = (rawTime / 1000 / 60) - (hours * 60);
 
                 // display process time in right column with some formatting
                 processTimeTextBox.Text += hours + "h " + minutes + "m" + Environment.NewLine;
